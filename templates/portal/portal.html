@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% comment %}
+Main template for all portal pages. 
+{% endcomment %}
+
+{% block head %}
+    <title> Lift Tracker | {% block title %}{% endblock %} </title>
+{% endblock%}
+
+{% block body%}
+    <header>
+        <h1> Lift Tracker | Portal </h1>
+    </header>
+
+    <section>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/logout/">logout</a></li>
+        </ul>
+    </section>
+
+    {% block content %} {% endblock %}
+
+    <footer>
+        <span>&copy; 2015, Lift Tracker</span>
+    </footer>
+{% endblock %}
+
+
