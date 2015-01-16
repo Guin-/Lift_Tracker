@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <header>
+        <h1> Lift Tracker </h1>
+        <h2> Registration  Page </h2>
+    </header>
+    <section>
+        <h3> Register with Lift Tracker </h3>
+        {% if registered %}
+        <p> Thank you for registering! <a href='/'>Return to the homepage</a></p>
+        {% else %}
+        
+        <p> <a href='/'>Return to the homepage</a></p>
+        <form id ="user_form" method="post" action="/register/">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            <input type="submit" name="submit" value="Register" />
+        </form>
+        {% endif %}
+    </section>
+
+{% endblock %}

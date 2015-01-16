@@ -1,5 +1,4 @@
 from django.conf.urls import patterns, include, url
-#from django.conf.urls.defaults import *
 from django.contrib import admin
 from LiftTracker.views import *
 
@@ -17,6 +16,9 @@ urlpatterns = patterns('',
     # Login/ logout
     (r'^login/$', 'django.contrib.auth.views.login'), 
     (r'^logout/$', logout_page),
+
+    # Registration page
+    url(r'^register/', 'LiftTracker.views.register', name='register'),
 
     # Lift Portal
     url(r'^portal/', include('portal.urls')),
