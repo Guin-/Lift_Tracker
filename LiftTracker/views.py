@@ -1,4 +1,4 @@
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, render
 from portal.forms import UserForm
@@ -16,7 +16,7 @@ def logout_page(request):
 def register(request):
     '''
     Displays new user registration page, and redirects 
-    user to the home page
+    user to the portal home page
     '''
 
     registered = False
@@ -30,6 +30,11 @@ def register(request):
             user.set_password(user.password)
             user.save()
             registered = True
+            
+            new_user = authenticate(username = user_form.cleaned_data['username'],
+                                    password = user_form.cleaned_data['password'])
+            login(request, new_user)
+            return render(request, 'portal/index.html') 
         else:
             print user_form.errors
     else:

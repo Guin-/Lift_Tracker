@@ -3,9 +3,6 @@ from django.contrib import admin
 from LiftTracker.views import *
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'LiftTracker.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
 
     # Admin page
     url(r'^admin/', include(admin.site.urls)),
