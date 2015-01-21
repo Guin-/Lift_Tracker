@@ -1,4 +1,4 @@
-from portal.models import User
+from portal.models import User, UserProfile
 from django.contrib.auth.models import User
 from django import forms
 
@@ -8,6 +8,13 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name','username', 'password', 'email')
+
+
+class UserProfile(forms.ModelForm):
+    
+    class Meta:
+        model = UserProfile
+        fields = ('name', 'age', 'bodyweight', 'goals')
 
 
 

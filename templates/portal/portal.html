@@ -7,23 +7,37 @@ Main template for all portal pages.
     <title> Lift Tracker | {% block title %}{% endblock %} </title>
 {% endblock%}
 
-{% block body%}
+{% block body %}
+{% block header%}
     <header>
         <h1> Lift Tracker | Portal </h1>
+        <p>A place to log and track your weight lifting progress over time </p>
     </header>
+{% endblock %}
 
+
+{% block nav %}
     <section>
         <ul>
             <li><a href="/">home</a></li>
             <li><a href="/logout/">logout</a></li>
+            <li><a href="/sessions/">sessions</a></li>
+            <li><a href="/new/">log new session</a></li>
+            <li><a href="/lifts/">lifts</a></li>
         </ul>
     </section>
+{% endblock %}
+
+
 
     {% block content %} {% endblock %}
 
+
+{% block footer %}
     <footer>
         <span>&copy; 2015, Lift Tracker</span>
     </footer>
 {% endblock %}
 
+{% endblock %}
 
