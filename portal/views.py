@@ -8,8 +8,13 @@ def portal_main_page(request):
     take them to the login page. 
     '''
 
-    #return render_to_response('portal/index.html')
     return render(request, 'portal/index.html', )
 
+@login_required
+def user_profile(request):
+    '''
+    Add, update, or view user profile
+    '''
+    pass
 
 
