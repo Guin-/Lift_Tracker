@@ -18,6 +18,12 @@ class UserProfile(models.Model):
     timestamp = models.DateTimeField(auto_now_add = True, default = datetime.datetime.now)
 
     def __unicode__(self):
-        return self.name
+        return "\n".join([
+            self.name,
+            self.age,
+            self.bodyweight,
+            self.goals
+            ])
+
 
 
