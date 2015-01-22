@@ -12,7 +12,7 @@ def portal_main_page(request):
     '''
     updated = False
 
-#    profile = UserProfile.objects.order_by('-timestamp')[:1] 
+    profile = UserProfile.objects.order_by('-timestamp')[:1] 
 
     if request == ("POST"):
         profile_form = UserProfile(request.POST)
@@ -22,14 +22,16 @@ def portal_main_page(request):
             updated = True
             profile = UserProfile.objects.order_by('-timestamp')[:1] 
 
-            return render(request, 'portal/index.html', { 'profile': profile })
+            return render(request, 'portal/index.html', { 'profile': profile,
+                                                            'updated': updated })
         else:
             print profile_form.errors
     else:
         profile_form = UserProfile()
+        
 
     return render(request, 'portal/index.html', {'profile_form': profile_form,
-                                                    'updated': updated })
+                                                    'profile': profile })
 
 @login_required
 def user_profile(request):

@@ -12,6 +12,7 @@ Main page of the portal
         <h2>Welcome, {{ user.username }} </h2>
         <p> User Profile view here <p> 
         <!-- if user profile: user profile, else: create form-->    
+        {{ profile }} 
         {% if updated %}
         {{ profile }}
         {% else %}
