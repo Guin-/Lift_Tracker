@@ -13,13 +13,19 @@ def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/')
 
+# When a new user fills out registration form, it logs them in and redirects them to the 
+# portal/index.html page. However, the actual url is /register/ and the user profile form 
+# does not display. When the url is manually changed to /portal/ the form displays. 
+# When changing the action on the registration form to /portal/ the user is not registered 
+# and is linked back to the login 
+
+
 def register(request):
     '''
     Displays new user registration page, and redirects 
     user to the portal home page
     '''
 
-    registered = False
 
     if request.method == "POST":
         user_form = UserForm(data = request.POST)
@@ -29,7 +35,6 @@ def register(request):
             
             user.set_password(user.password)
             user.save()
-            registered = True
             
             new_user = authenticate(username = user_form.cleaned_data['username'],
                                     password = user_form.cleaned_data['password'])
@@ -41,6 +46,5 @@ def register(request):
         user_form = UserForm()
 
 
-    return render(request, 'registration/register.html', {'user_form': user_form,
-                                                         'registered': registered})
+    return render(request, 'registration/register.html', {'user_form': user_form })
 

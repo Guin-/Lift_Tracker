@@ -7,9 +7,6 @@
     </header>
     <section>
         <h3> Register with Lift Tracker </h3>
-       <!-- {% if registered %} --> 
-        <p> Thank you for registering! <a href='/'>Return to the homepage</a></p>
-       <!-- {% else %}-->
         
         <p> <a href='/'>Return to the homepage</a></p>
         <form id ="user_form" method="post" action="/register/">
@@ -17,7 +14,6 @@
             {{ user_form.as_p }}
             <input type="submit" name="submit" value="Register" />
         </form>
-        {% endif %}
     </section>
 
 {% endblock %}

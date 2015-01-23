@@ -10,18 +10,13 @@ Main page of the portal
 {% block content %}
     <section>
         <h2>Welcome, {{ user.username }} </h2>
-        <p> User Profile view here <p> 
+        <p> Create your profile here <p> 
         <!-- if user profile: user profile, else: create form-->    
-        {{ profile }} 
-        {% if updated %}
-        {{ profile }}
-        {% else %}
         <form id ="profile_form" method="post" >
             {% csrf_token %}
             {{ profile_form.as_p }}
             <input type="submit" name="submit" value="Update User Profile" />
         </form>
-        {% endif %}
     </section>
 {% endblock %}
 

@@ -11,6 +11,7 @@ class User(models.Model):
             ])
 
 class UserProfile(models.Model):
+    user = models.OneToOneField(User, unique=True)
     name = models.CharField(max_length=100)
     age = models.IntegerField()
     bodyweight= models.IntegerField()
