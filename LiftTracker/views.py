@@ -1,7 +1,7 @@
 from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, render
-from portal.forms import UserForm
+from portal.forms import UserForm, UserProfileForm
 
 def main_page(request):
     return render_to_response('index.html')
@@ -13,16 +13,10 @@ def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/')
 
-# When a new user fills out registration form, it logs them in and redirects them to the 
-# portal/index.html page. However, the actual url is /register/ and the user profile form 
-# does not display. When the url is manually changed to /portal/ the form displays. 
-# When changing the action on the registration form to /portal/ the user is not registered 
-# and is linked back to the login 
-
 
 def register(request):
     '''
-    Displays new user registration page, and redirects 
+    Displays new user registration page. Registers, logs in, and redirects 
     user to the portal home page
     '''
 
@@ -39,7 +33,8 @@ def register(request):
             new_user = authenticate(username = user_form.cleaned_data['username'],
                                     password = user_form.cleaned_data['password'])
             login(request, new_user)
-            return render(request, 'portal/index.html') 
+
+            return HttpResponseRedirect('/portal/')
         else:
             print user_form.errors
     else:
