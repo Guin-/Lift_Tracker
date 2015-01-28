@@ -61,7 +61,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 ROOT_URLCONF = 'LiftTracker.urls'
 
 WSGI_APPLICATION = 'LiftTracker.wsgi.application'
-AUTH_PROFILE_MODULE = 'portal.UserProfile'
+#AUTH_PROFILE_MODULE = 'portal.UserProfile'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
