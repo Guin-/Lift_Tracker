@@ -4,6 +4,14 @@ from portal.forms import UserProfileForm
 from portal.models import UserProfile
 
 
+# Portal Main Page - If user has a UserProfile, display profile. Link to Update in template. 
+# Else - display UserProfileForm
+
+
+# Update UserProfile - if update valid, redirect to portal main page. Save profile to a user instance. 
+
+
+
 @login_required
 def portal_main_page(request):
     '''
@@ -22,7 +30,7 @@ def portal_main_page(request):
             updated = True
             latest_profile = UserProfile.objects.order_by('-timestamp')[:1] 
 
-            return render(request, 'portal/index.html', { 'profile': profile,
+            return render(request, 'portal/index.html', { 'latest_profile':latest_profile,
                                                            'updated': updated })
         else:
             print profile_form.errors

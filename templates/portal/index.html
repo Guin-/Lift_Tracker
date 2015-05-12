@@ -12,6 +12,9 @@ Main page of the portal
         <h2>Welcome, {{ user.username }} </h2>
         <p> Create your profile here <p> 
         <!-- if user profile: user profile, else: create form-->    
+        {% if updated %}
+        {{ latest_profile }}
+        {% endif %}
         <form id ="profile_form" method="post" >
             {% csrf_token %}
             {{ profile_form.as_p }}

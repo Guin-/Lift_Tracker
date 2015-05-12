@@ -1,7 +1,7 @@
 from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response, render
-from portal.forms import UserForm, UserProfileForm
+from django.shortcuts import render, render_to_response
+from portal.forms import UserForm
 
 def main_page(request):
     return render_to_response('index.html')

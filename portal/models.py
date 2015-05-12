@@ -13,10 +13,10 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return "\n".join([
             self.name,
-            self.age,
-            self.bodyweight,
+#            self.age,
+#            self.bodyweight,
             self.goals
             ])
 
-
+    
 
